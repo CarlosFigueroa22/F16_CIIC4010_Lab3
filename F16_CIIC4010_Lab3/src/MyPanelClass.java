@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Polygon;
 import javax.swing.JPanel;
- 
+
 public class MyPanelClass extends JPanel 
 {
             /**
@@ -41,19 +41,41 @@ public class MyPanelClass extends JPanel
 //                        g.drawLine(x1, y1, x2, y2);
 //                        g.setColor(Color.CYAN);
 //                        g.drawLine(x1, y2, x2, y1);
-                        
+//                       
+//                        //Draw Oval
 //                        g.setColor(Color.LIGHT_GRAY);
 //                        g.fillOval((width - 55)/2, (height - 55)/2, 55, 55);
                         
-                        Polygon p = new Polygon();
-                        p.addPoint(x1 + 5, y1 + 25);
-                        p.addPoint(x1 + 20, y1 + 10);
-                        p.addPoint(x1 + 35, y1 + 25);
-                        p.addPoint(x1 + 25, y1 + 25);
-                        p.addPoint(x1 + 25, y1 + 45);
-                        p.addPoint(x1 + 15, y1 + 45);
-                        p.addPoint(x1 + 15, y1 + 25);
-                        g.setColor(Color.YELLOW);
-                        g.fillPolygon(p);
+//                        //Draw polygon
+//                        Polygon p = new Polygon();
+//                        p.addPoint(x1 + 5, y1 + 25);
+//                        p.addPoint(x1 + 20, y1 + 10);
+//                        p.addPoint(x1 + 35, y1 + 25);
+//                        p.addPoint(x1 + 25, y1 + 25);
+//                        p.addPoint(x1 + 25, y1 + 45);
+//                        p.addPoint(x1 + 15, y1 + 45);
+//                        p.addPoint(x1 + 15, y1 + 25);
+//                        g.setColor(Color.YELLOW);
+//                        g.fillPolygon(p);
+                        
+                        //Draw MI BANDERA
+                        g.setColor(Color.WHITE);
+                        g.fillRect(x1, height / 5, width + 1, height/5);
+                        g.fillRect(x1, 3 * height / 5, width + 1, height/5);
+                        
+                        Polygon triangulo = new Polygon();
+                        triangulo.addPoint(x1, y1);
+                        triangulo.addPoint(width/2, height/2);
+                        triangulo.addPoint(x1, y2);
+                        g.setColor(Color.BLUE);
+                        g.fillPolygon(triangulo);
+                        
+                        g.setColor(Color.WHITE);
+                        int centroX = (int)width/6;
+                        int centroY = (int)height/2;
+                        
+                        //StarPolygon is a third party library
+                        StarPolygon estrella = new StarPolygon(centroX, centroY, height/6, height/18, 5, 60);
+                        g.fillPolygon(estrella);
             }
 }
